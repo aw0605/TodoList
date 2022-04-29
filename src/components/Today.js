@@ -32,7 +32,7 @@ const Today = () => {
 
 const TodayWrapper = styled.div`
     background: #83C1DA;
-    padding: 0.1rem 2rem;
+    padding: 0.101rem 2rem;
     font-size: 1.1rem;
     text-align: right;
     color: #fff;
