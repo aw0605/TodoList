@@ -5,6 +5,7 @@ import TodoInsert from 'components/TodoInsert';
 import TodoList from 'components/TodoList';
 
 const App = () => {
+  // useState로 todos 상태 정의
   const [todos, setTodos] = useState([
     {
       id : 1,
@@ -26,7 +27,7 @@ const App = () => {
   // 고유값을 가질 id생성
   const nextId = useRef(4);
 
-  // onInsert함수
+  // onInsert함수 - todos배열에 새 객체 추가
   const onInsert = useCallback(
     (text) => {
       const todo = {
@@ -35,12 +36,12 @@ const App = () => {
         checked : false
       };
       setTodos(todos.concat(todo));
-      nextId.current += 1;
+      nextId.current += 1; // nextId++
     },
     [todos]
   );
 
-  // 항목 제거
+  // 항목 제거 - filter함수 이용해 todos배열에서 id로 항목 제거
   const onRemove = useCallback(
     (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));

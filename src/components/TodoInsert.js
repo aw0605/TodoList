@@ -3,17 +3,18 @@ import { MdAdd } from 'react-icons/md';
 import styled from 'styled-components';
 
 const TodoInsert = ({onInsert}) => {
+    // input에 입력하는 값 관리
     const [value, setValue] = useState('');
 
     const onChange = useCallback((e) => {
         setValue(e.target.value);
     },[]);
 
-    // onSubmit 이벤트 설정
+    // onSubmit 이벤트 설정(onSubmit으로 해야 Enter시에도 발생) - onInsert함수에 관리하는 값 넣어서 호출
     const onSubmit = useCallback(
         (e) => {
             onInsert(value);
-            setValue('');
+            setValue(''); // value값 초기화
             e.preventDefault();
         },
         [onInsert, value]

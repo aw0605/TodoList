@@ -2,11 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Today = () => {
+    // 해당 날짜 가져오기
     const date = new Date();
+
+    // 년(yy) - 월(mm) - 일(dd)
     const yy = date.getFullYear();
     const mm = date.getMonth() + 1;
     const dd = date.getDate();
 
+    // getDay을 통해 반환된 숫자를 요일로 변경
     var week = new Array(7);
     week[0] = '(일요일)';
     week[1] = '(월요일)';
@@ -28,7 +32,7 @@ const Today = () => {
 
 const TodayWrapper = styled.div`
     background: #83C1DA;
-    padding: 0.001rem 1.5rem;
+    padding: 0.1rem 2rem;
     font-size: 1.1rem;
     text-align: right;
     color: #fff;

@@ -8,6 +8,7 @@ const TodoListItem = ({todo, onRemove, onToggle}) => {
     const {id, text, checked} = todo;
     return (
         <TodoItemWrapper>
+            {/* checked가 true면 check표시되게 : false면 빈원으로 표시 */}
             <CheckBox 
             className={cn('checkbox', {checked})}
             onClick={() => onToggle(id)}
@@ -15,6 +16,8 @@ const TodoListItem = ({todo, onRemove, onToggle}) => {
                 {checked? <BsCheckCircleFill /> : <BsCircle />}
                 <div className='text'>{text}</div>
             </CheckBox>
+
+            {/* props로 받아 온 onRemove함수 통해 클릭시 제거 */}
             <Remove onClick={() => onRemove(id)}>
                 <MdRemoveCircleOutline />
             </Remove>
